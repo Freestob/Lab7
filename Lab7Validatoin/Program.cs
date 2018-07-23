@@ -42,7 +42,7 @@ namespace Lab7Validatoin
         {
             Console.WriteLine("Please enter your email");
             string email = Console.ReadLine();
-            Regex emailRegex = new Regex(@"^(\w{5,30})@(\w{5,10}).(\w{2,3}$)");
+            Regex emailRegex = new Regex(@"^(\w[^_]{5,30})@(\w[^_]{5,10}).(\w[^_]{2,3}$)");
             if(emailRegex.IsMatch(email))
             {
                 return email;
