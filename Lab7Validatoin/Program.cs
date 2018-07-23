@@ -15,11 +15,11 @@ namespace Lab7Validatoin
             Console.WriteLine("This will validate different kinds of input");
 
             var userName = GetUserName();
-            Console.WriteLine("Hello " + userName);
-            Console.ReadKey();
             var email = GetUserEmail();
-            Console.WriteLine(email);
-            Console.ReadLine();
+            var phone = GetPhoneNumber();
+            var date = GetDate();
+            Console.WriteLine($"Hello {userName} your email is {email}, your phone number is {phone} and you entered the date {date}.");
+            Console.ReadKey();
 
 
         }
@@ -50,6 +50,34 @@ namespace Lab7Validatoin
             else
             {
                 return GetUserEmail();
+            }
+        }
+        static string GetPhoneNumber()
+        {
+            Console.WriteLine("Please enter your phone number");
+            string phoneNumber = Console.ReadLine();
+            Regex phoneRegex = new Regex(@"^(\d{3,3})-(\d{3,3})-(\d{4,4}$)");
+            if (phoneRegex.IsMatch(phoneNumber))
+            {
+                return phoneNumber;
+            }
+            else
+            {
+                return GetPhoneNumber();
+            }
+        }
+        static string GetDate()
+        {
+            Console.WriteLine("Please enter a date as dd/mm/yyyy");
+            string date = Console.ReadLine();
+            Regex dateRegex = new Regex(@"^(\d{2,2})/(\d{2,2})/(\d{4,4}$)");
+            if (dateRegex.IsMatch(date))
+            {
+                return date;
+            }
+            else
+            {
+                return GetDate();
             }
         }
     }
