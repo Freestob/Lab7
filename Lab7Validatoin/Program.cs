@@ -42,7 +42,7 @@ namespace Lab7Validatoin
         {
             Console.WriteLine("Please enter your email");
             string email = Console.ReadLine();
-            Regex emailRegex = new Regex(@"^(\w[^_]{5,30})@(\w[^_]{5,10}).(\w[^_]{2,3}$)");
+            Regex emailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             if(emailRegex.IsMatch(email))
             {
                 return email;
@@ -54,7 +54,7 @@ namespace Lab7Validatoin
         }
         static string GetPhoneNumber()
         {
-            Console.WriteLine("Please enter your phone number");
+            Console.WriteLine("Please enter your phone number as xxx-xxx-xxxx");
             string phoneNumber = Console.ReadLine();
             Regex phoneRegex = new Regex(@"^(\d{3,3})-(\d{3,3})-(\d{4,4}$)");
             if (phoneRegex.IsMatch(phoneNumber))
